@@ -39,4 +39,12 @@ h4.card-title {
 div.container-precio-idioma {
   display: flex;
   justify-content: space-between;
+  color: #c62e65;
+}
+.badge .badge-info {
+  color: #c62e65;
+}
+
+.bg-custom {
+  background-color: #c62e65;
 }

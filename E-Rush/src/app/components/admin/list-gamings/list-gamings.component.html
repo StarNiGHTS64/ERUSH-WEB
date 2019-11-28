@@ -1,1 +1,26 @@
-<p>list-gamings works!</p>
+<section class="row mt-5">
+  <div class="col">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Ciudad</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gaming of gamings; index as i">
+          <th scope="row">11</th>
+          <td>{{ gaming.name }}</td>
+          <td>{{ gaming.type }}</td>
+          <td>{{ gaming.city }}</td>
+          <td>{{ gaming.address }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

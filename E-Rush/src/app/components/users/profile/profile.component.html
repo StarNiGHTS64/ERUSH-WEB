@@ -9,11 +9,11 @@
       <div class="row user-details">
         <div class="col-12">
           <img
-            src="../../../../assets/check-user.png"
+            src="{{ user.photoUrl }}"
             class="rounded-circle img-thumbnail"
             alt="profile"
           />
-          <h5>{{ user.name }}</h5>
+          <h5 *ngIf="providerId != 'password'">{{ user.gamertag }}</h5>
           <p>
             {{ user.email }}
           </p>
