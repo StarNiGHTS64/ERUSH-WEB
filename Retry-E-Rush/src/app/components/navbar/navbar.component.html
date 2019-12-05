@@ -7,8 +7,12 @@
 
   <div class="collapse navbar-collapse" id="mainNavbar">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" *ngIf="isLogged">
-        <a class="nav-link" routerLink="/offers">Offers
+      <li class="nav-item" >
+        <a class="nav-link" routerLink="/topgaming">Top Gaming
+        </a>
+      </li>
+      <li class="nav-item" >
+        <a class="nav-link" routerLink="/topevent">Top Event
         </a>
       </li>
     </ul>
@@ -21,7 +25,10 @@
         <a class="nav-link" routerLink="/user/profile">Profile</a>
       </li>
       <li class="nav-item" *ngIf="isLogged">
-        <a class="nav-link" routerLink="/admin/list-books">List Books</a>
+        <a class="nav-link" routerLink="/admin/list-gaming">List Gamings</a>
+      </li>
+      <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/admin/list-events">List Events</a>
       </li>
       <li class="nav-item" *ngIf="!isLogged">
         <a class="nav-link" routerLink="/user/login">Login
