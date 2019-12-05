@@ -13,13 +13,13 @@ import { ProfileComponent } from './components/users/profile/profile.component';
 import { Page404Component } from './components/page404/page404.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'topgaming', component: TopGamingComponent },
+  { path: '', component: HomeComponent }, //Verificar Rol
+  { path: 'topgaming', component: TopGamingComponent }, 
   { path: 'topevent', component: TopEventComponent },
   { path: 'gaming/:id', component: DetailsGamingComponent },
   { path: 'event/:id', component: DetailsEventComponent },
-  { path: 'admin/list-gaming', component: ListGamingComponent },
-  { path: 'admin/list-events', component: ListEventsComponent },
+  { path: 'admin/list-gaming', component: ListGamingComponent }, //Verficar Rol
+  { path: 'admin/list-events', component: ListEventsComponent }, //Verificar Rol
   { path: 'user/login', component: LoginComponent },
   { path: 'user/register', component: RegisterComponent },
   { path: 'user/profile', component: ProfileComponent },
