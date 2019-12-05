@@ -1,7 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { TopGamingComponent } from './components/top-gaming/top-gaming.component';
+import { TopEventComponent } from './components/top-event/top-event.component';
+import { DetailsGamingComponent } from './components/details-gaming/details-gaming.component';
+import { DetailsEventComponent } from './components/details-event/details-event.component';
+import { ListGamingComponent } from './components/admin/list-gaming/list-gaming.component';
+import { ListEventsComponent } from './components/admin/list-events/list-events.component';
+import { LoginComponent } from './components/users/login/login.component';
+import { RegisterComponent } from './components/users/register/register.component';
+import { ProfileComponent } from './components/users/profile/profile.component';
+import { Page404Component } from './components/page404/page404.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'topgaming', component: TopGamingComponent },
+  { path: 'topevent', component: TopEventComponent },
+  { path: 'gaming/:id', component: DetailsGamingComponent },
+  { path: 'event/:id', component: DetailsEventComponent },
+  { path: 'admin/list-gaming', component: ListGamingComponent },
+  { path: 'admin/list-events', component: ListEventsComponent },
+  { path: 'user/login', component: LoginComponent },
+  { path: 'user/register', component: RegisterComponent },
+  { path: 'user/profile', component: ProfileComponent },
+  { path: '**', component: Page404Component },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
