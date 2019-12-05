@@ -1,5 +1,12 @@
 <section class="row mt-5">
   <div class="col">
+    <button
+      class="btn btn-primary float-right mb-3"
+      data-toggle="modal"
+      data-target="#modalGaming"
+    >
+      Nuevo Gaming
+    </button>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -19,8 +26,15 @@
           <td>{{ gaming.type }}</td>
           <td>{{ gaming.city }}</td>
           <td>{{ gaming.address }}</td>
+          <td>
+            <button class="btn btn-primary">Update</button>
+          </td>
+          <td>
+            <button class="btn btn-primary">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
 </section>
+<app-modal></app-modal>
