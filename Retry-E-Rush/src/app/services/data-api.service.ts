@@ -21,6 +21,8 @@ export class DataApiService {
   //---------------------------------GAMING---------------------//
   private gamingsCollection: AngularFirestoreCollection<GamingInterface>;
   private gamings: Observable<GamingInterface[]>
+  private gamingDoc: AngularFirestoreDocument<GamingInterface>;
+  private gaming: Observable<GamingInterface>;
   getAllGamings(){
     return this.gamings = this.gamingsCollection.snapshotChanges()
     .pipe(map(changes => {
@@ -31,6 +33,18 @@ export class DataApiService {
       });
     }));
   }
+  getOneGaming(idGaming: string){
+    this.gamingDoc = this.afs.doc<GamingInterface>(`gaming/${idGaming}`);
+    return this.gaming = this.gamingDoc.snapshotChanges().pipe(map(action =>{
+      if (action.payload.exists == false){
+        return null;
+      }else {
+        const data = action.payload.data() as GamingInterface;
+        data.id = action.payload.id;
+        return data;
+      }
+    }));
+  }
   addGaming(){}
   updateGaming(){}
   deleteGaming(){}
@@ -38,6 +52,8 @@ export class DataApiService {
   //---------------------------------EVENT----------------------//
   private eventsCollection: AngularFirestoreCollection<EventInterface>;
   private events: Observable<EventInterface[]>
+  private eventDoc: AngularFirestoreDocument<EventInterface>;
+  private event: Observable<EventInterface>
   getAllEvents(){
     return this.events = this.eventsCollection.snapshotChanges()
     .pipe(map(changes => {
@@ -47,6 +63,18 @@ export class DataApiService {
         return data;
       });
     }));
+  }
+  getOneEvent(idEvent: string){
+    this.gamingDoc = this.afs.doc<EventInterface>(`event/${idEvent}`);
+    return this.event = this.eventDoc.snapshotChanges().pipe(map(action =>{
+      if (action.payload.exists == false){
+        return null;
+      }else {
+        const data = action.payload.data() as EventInterface;
+        data.id = action.payload.id;
+        return data;
+      }
+    }))
   }
   addEvent(){}
   updateEvent(){}
