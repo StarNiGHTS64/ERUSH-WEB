@@ -21,6 +21,11 @@ import { ProfileComponent } from './components/users/profile/profile.component';
 import { RegisterComponent } from './components/users/register/register.component';
 import { Page404Component } from './components/page404/page404.component';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../environments/environment';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -46,9 +51,11 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
