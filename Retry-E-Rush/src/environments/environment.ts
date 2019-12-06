@@ -1,6 +1,8 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+//ID app: 2401348660193669
+//clave secreta: 2a385b1357a6e475574cfcc1f6e3cdea
 
 export const environment = {
   production: false,
@@ -11,7 +13,7 @@ export const environment = {
     projectId: "e-rush-95dd4",
     storageBucket: "e-rush-95dd4.appspot.com",
     messagingSenderId: "354704680470",
-    appId: "1:354704680470:web:8b50b03e37f224dfe4f737"
+    appId: "1:354704680470:web:8c417c149a5f8b7be4f737"
   }
 };
 

@@ -5,16 +5,16 @@
         <div class="card_login">
           <div class="card">
             <div class="card-body text-center">
-              <form #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)">
+              <form #formLogin="ngForm">
                 <h1 class="h3 mb-3 font-weight-normal" *ngIf="!isError">Login</h1>
                 <div class="alert alert-danger" role="alert" *ngIf="isError">
                   Something is wrong!
                 </div>
                 <div class="form-group">
-                  <input type="email" id="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="user.email" required>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                  <input type="password" id="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="user.password"
+                  <input type="password" id="password" name="password" class="form-control" placeholder="Password"
                     required>
                 </div>
                 <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
@@ -22,14 +22,14 @@
                   <a routerLink="/user/register" class="form-control login-user">Are you new ?</a>
                 </div>
                 <div class="form-group">
-                  <a href="#" class="btn btn-block btn-social btn-facebook">
+                  <button class="btn btn-block btn-social btn-facebook" (click)="onLoginFacebook()">
                     <span class="fa fa-facebook"></span>
                     FACEBOOK
-                  </a>
-                  <a href="#" class="btn btn-block btn-social btn-google" (click)="onLoginGoogle()">
+                  </button>
+                  <button class="btn btn-block btn-social btn-google" (click)="onLoginGoogle()">
                     <span class="fa fa-google"></span>
                     GOOGLE
-                  </a>
+                  </button>
                 </div>
               </form>
             </div>

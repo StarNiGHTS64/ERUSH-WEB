@@ -21,6 +21,10 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['admin/list-gaming']); //TODO: Verificar esto
   }
 
+  onLoginFacebook(){
+    this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider());
+  }
+
   onLogout(){
     this.afAuth.auth.signOut();
   }
