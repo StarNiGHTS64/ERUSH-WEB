@@ -44,11 +44,9 @@ export class RegisterComponent implements OnInit {
           user.updateProfile({
             displayName: '',
             photoURL: this.inputImageUser.nativeElement.value
-          }).then( function (){
-            console.log('USER UPDATED!');
-          }).catch( function (error){
-            console.log('Error: ', error);
-          });
+          }).then(  () => {
+            this.router.navigate(['admin/list-gaming']);
+          }).catch( (error) =>console.log('Error: ', error));
         }
       })
       //this.router.navigate(['admin/list-gaming']);
