@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataApiService } from '../../services/data-api.service';
 
 @Component({
   selector: 'app-top-gaming',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopGamingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataApi: DataApiService) { }
+  private gamings = [];
+  private gaming = '';
 
   ngOnInit() {
+    this.dataApi.getAllGamings().subscribe(gamings => {
+      console.log('GAMINGS: ', gamings);
+    })
   }
 
 }
