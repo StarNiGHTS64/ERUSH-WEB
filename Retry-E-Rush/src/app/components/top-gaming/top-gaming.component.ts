@@ -15,6 +15,7 @@ export class TopGamingComponent implements OnInit {
   ngOnInit() {
     this.dataApi.getAllGamings().subscribe(gamings => {
       console.log('GAMINGS: ', gamings);
+      this.gamings = gamings;
     })
   }
 

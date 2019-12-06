@@ -15,6 +15,7 @@ export class TopEventComponent implements OnInit {
   ngOnInit() {
     this.dataApi.getAllEvents().subscribe(events => {
       console.log('EVENTS: ', events);
+      this.events = events;
     })
   }
 
