@@ -39,7 +39,14 @@ export class DataApiService {
   private eventsCollection: AngularFirestoreCollection<EventInterface>;
   private events: Observable<EventInterface[]>
   getAllEvents(){
-    return this.events;
+    return this.events = this.eventsCollection.snapshotChanges()
+    .pipe(map(changes => {
+      return changes.map( action => {
+        const data = action.payload.doc.data() as EventInterface;
+        data.id = action.payload.doc.id;
+        return data;
+      });
+    }));
   }
   addEvent(){}
   updateEvent(){}

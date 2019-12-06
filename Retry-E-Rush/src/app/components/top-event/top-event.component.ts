@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataApiService } from '../../services/data-api.service';
 
 @Component({
   selector: 'app-top-event',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopEventComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataApi: DataApiService) { }
+  private events = [];
+  private event = '';
 
   ngOnInit() {
+    this.dataApi.getAllEvents().subscribe(events => {
+      console.log('EVENTS: ', events);
+    })
   }
 
 }
