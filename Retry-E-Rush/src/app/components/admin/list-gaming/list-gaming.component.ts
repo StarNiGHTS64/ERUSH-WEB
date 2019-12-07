@@ -30,5 +30,9 @@ export class ListGamingComponent implements OnInit {
       this.dataApi.deleteGaming(idGaming);
     }
   }
+
+  onPreUpdateGaming(gaming: GamingInterface){
+    this.dataApi.selectedGaming = Object.assign({}, gaming);
+  }
 //
 }
