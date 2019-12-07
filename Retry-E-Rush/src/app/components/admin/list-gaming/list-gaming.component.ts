@@ -32,6 +32,7 @@ export class ListGamingComponent implements OnInit {
   }
 
   onPreUpdateGaming(gaming: GamingInterface){
+    console.log('GAMING LIST:', gaming);
     this.dataApi.selectedGaming = Object.assign({}, gaming);
   }
 //

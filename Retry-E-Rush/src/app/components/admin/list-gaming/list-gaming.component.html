@@ -21,7 +21,7 @@
           <td>{{gaming.city}}</td>
           <td>{{gaming.address}}</td>
           <td>
-            <button class="btn btn-primary" (click)="">Update</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modalGaming" (click)="onPreUpdateGaming(gaming)">Update</button>
           </td>
           <td>
               <button class="btn btn-danger" (click)="onDeleteGaming(gaming.id)" >Delete</button>

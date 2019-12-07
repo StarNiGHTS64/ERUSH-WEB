@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataApiService } from '../../services/data-api.service';
 import { GamingInterface } from '../../models/gaming';
 import { NgForm } from '@angular/forms';
@@ -11,14 +11,22 @@ import { NgForm } from '@angular/forms';
 export class ModalGamingComponent implements OnInit {
 
   constructor(private dataApi: DataApiService) { }
-
+  @ViewChild('btnClose') btnClose: ElementRef;
   ngOnInit() {
   }
 
   onSaveGaming(gamingForm: NgForm): void {
-    //NEW
-    this.dataApi.addGaming(gamingForm.value);
-    //UPDATE
+    //console.log('gamingForm.value.id', gamingForm.value.id);
+
+    if (gamingForm.value.id == null) {
+      //NEW
+      this.dataApi.addGaming(gamingForm.value);
+    } else {
+      //UPDATE
+      this.dataApi.updateGaming(gamingForm.value);
+    }
+    gamingForm.resetForm();
+    this.btnClose.nativeElement.click();
   }
 
 }
