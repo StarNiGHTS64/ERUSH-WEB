@@ -10,6 +10,7 @@ import { DetailsGamingComponent } from './components/details-gaming/details-gami
 import { DetailsEventComponent } from './components/details-event/details-event.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { HomeComponent } from './components/home/home.component';
+import { ModalComponent } from './components/modal/modal.component';
 import { ModalGamingComponent } from './components/modal-gaming/modal-gaming.component';
 import { ModalEventComponent } from './components/modal-event/modal-event.component';
 import { ModalUserComponent } from './components/modal-user/modal-user.component';
@@ -39,6 +40,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
     DetailsEventComponent,
     HeroComponent,
     HomeComponent,
+    ModalComponent,
     ModalGamingComponent,
     ModalEventComponent,
     ModalUserComponent,
@@ -48,7 +50,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
     LoginComponent,
     ProfileComponent,
     RegisterComponent,
-    Page404Component
+    Page404Component,
+
   ],
   imports: [
     BrowserModule,

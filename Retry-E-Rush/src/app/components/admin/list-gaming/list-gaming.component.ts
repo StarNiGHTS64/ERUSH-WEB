@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataApiService } from '../../../services/data-api.service';
+import { GamingInterface } from '../../../models/gaming';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-list-gaming',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListGamingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataApi: DataApiService) { }
+  private gamings: GamingInterface[];
 
   ngOnInit() {
+    this.getListGamings();
+  }
+
+  getListGamings(){
+    this.dataApi.getAllGamings().subscribe(gamings => {
+      this.gamings = gamings;
+    })
+  }
+
+  onDeleteGaming(){
+    console.log('DELETE GAMING');
   }
 
 }

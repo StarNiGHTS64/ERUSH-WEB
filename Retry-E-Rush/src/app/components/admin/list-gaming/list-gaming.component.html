@@ -1,16 +1,34 @@
-<p>
-  list-gaming works!
-</p>
-<p>
-    list-gaming works!
-  </p>
-  <p>
-      list-gaming works!
-    </p>
-    <p>
-        list-gaming works!
-      </p>
-      <p>
-          list-gaming works!
-        </p>
-                    
+<section class="row mt-5">
+  <div class="col">
+    <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalGaming">New Gaming</button>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">City</th>
+          <th scope="col">Address</th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor= "let gaming of gamings; index as i">
+          <th scope="row">{{i+1}}</th>
+          <td>{{gaming.name}}</td>
+          <td>{{gaming.type}}</td>
+          <td>{{gaming.city}}</td>
+          <td>{{gaming.address}}</td>
+          <td>
+            <button class="btn btn-primary">Update</button>
+          </td>
+          <td>
+              <button class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<app-modal-gaming></app-modal-gaming>

@@ -45,9 +45,18 @@ export class DataApiService {
       }
     }));
   }
-  addGaming(){}
-  updateGaming(){}
-  deleteGaming(){}
+  addGaming(gaming: GamingInterface): void{
+    this.gamingsCollection.add(gaming);
+  }
+  updateGaming(gaming: GamingInterface): void{
+    let idGaming = gaming.id;
+    this.gamingDoc = this.afs.doc<GamingInterface>(`gaming/${idGaming}`);
+    this.gamingDoc.update(gaming);
+  }
+  deleteGaming(idGaming: string): void{
+    this.gamingDoc = this.afs.doc<GamingInterface>(`gaming/${idGaming}`);
+    this.gamingDoc.delete;
+  }
 
   //---------------------------------EVENT----------------------//
   private eventsCollection: AngularFirestoreCollection<EventInterface>;
@@ -76,16 +85,25 @@ export class DataApiService {
       }
     }))
   }
-  addEvent(){}
-  updateEvent(){}
-  deleteEvent(){}
+  addEvent(event: EventInterface): void{
+    this.eventsCollection.add(event);
+  }
+  updateEvent(event: EventInterface): void{
+    let idEvent = event.id;
+    this.eventDoc = this.afs.doc<EventInterface>(`event/${idEvent}`);
+    this.eventDoc.update(event);
+  }
+  deleteEvent(idEvent: string): void{
+    this.eventDoc = this.afs.doc<EventInterface>(`event/${idEvent}`);
+    this.eventDoc.delete();
+  }
 
   //---------------------------------USER----------------------//
   private gamersCollection: AngularFirestoreCollection<UserInterface>;
   private gamers: Observable<UserInterface[]>
   getAllUsers(){}
-  addUser(){}
-  updateUser(){}
-  deleteUser(){}
+  addUser(): void{}
+  updateUser(): void{}
+  deleteUser(): void{}
 
 }
