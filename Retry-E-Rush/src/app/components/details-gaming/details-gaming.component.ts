@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataApiService } from '../../services/data-api.service';
 import { GamingInterface } from '../../models/gaming';
 import { ActivatedRoute, Params } from '@angular/router';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 
 @Component({
   selector: 'app-details-gaming',

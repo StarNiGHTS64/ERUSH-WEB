@@ -65,7 +65,7 @@ export class DataApiService {
     }));
   }
   getOneEvent(idEvent: string){
-    this.gamingDoc = this.afs.doc<EventInterface>(`event/${idEvent}`);
+    this.eventDoc = this.afs.doc<EventInterface>(`event/${idEvent}`);
     return this.event = this.eventDoc.snapshotChanges().pipe(map(action =>{
       if (action.payload.exists == false){
         return null;
