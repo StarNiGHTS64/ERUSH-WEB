@@ -23,9 +23,12 @@ export class ListEventsComponent implements OnInit {
     })
   }
 
-  onDeleteEvent(idEvent){
-    console.log('DELETE EVENT');
-    this.dataApi.deleteEvent(idEvent);
+  onDeleteEvent(idEvent: string): void{
+    console.log('DELETE Event', idEvent);
+    const confirmacion = confirm('Are you sure?')
+    if (confirmacion){
+      this.dataApi.deleteEvent(idEvent);
+    }
   }
 
 }
