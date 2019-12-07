@@ -23,8 +23,9 @@ export class ListEventsComponent implements OnInit {
     })
   }
 
-  onDeleteEvent(){
+  onDeleteEvent(idEvent){
     console.log('DELETE EVENT');
+    this.dataApi.deleteEvent(idEvent);
   }
 
 }

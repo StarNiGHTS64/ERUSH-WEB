@@ -23,8 +23,9 @@ export class ListGamingComponent implements OnInit {
     })
   }
 
-  onDeleteGaming(){
-    console.log('DELETE GAMING');
+  onDeleteGaming(idGaming){
+    console.log('DELETE GAMING', idGaming);
+    this.dataApi.deleteGaming(idGaming);
   }
 
 }
