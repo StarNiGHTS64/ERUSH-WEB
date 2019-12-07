@@ -56,7 +56,7 @@ export class DataApiService {
   }
   deleteGaming(idGaming: string): void{
     this.gamingDoc = this.afs.doc<GamingInterface>(`gaming/${idGaming}`);
-    this.gamingDoc.delete;
+    this.gamingDoc.delete();
   }
 
   //---------------------------------EVENT----------------------//
