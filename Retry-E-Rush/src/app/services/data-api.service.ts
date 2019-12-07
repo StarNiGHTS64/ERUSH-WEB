@@ -23,6 +23,7 @@ export class DataApiService {
   private gamings: Observable<GamingInterface[]>
   private gamingDoc: AngularFirestoreDocument<GamingInterface>;
   private gaming: Observable<GamingInterface>;
+  private selectedGaming: GamingInterface = {};
   getAllGamings(){
     return this.gamings = this.gamingsCollection.snapshotChanges()
     .pipe(map(changes => {
@@ -63,6 +64,7 @@ export class DataApiService {
   private events: Observable<EventInterface[]>
   private eventDoc: AngularFirestoreDocument<EventInterface>;
   private event: Observable<EventInterface>
+  private selectedEvent: GamingInterface = {};
   getAllEvents(){
     return this.events = this.eventsCollection.snapshotChanges()
     .pipe(map(changes => {

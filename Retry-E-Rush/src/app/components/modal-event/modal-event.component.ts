@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataApiService } from '../../services/data-api.service';
+import { EventInterface } from '../../models/event';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-modal-event',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalEventComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataApi: DataApiService) { }
 
   ngOnInit() {
+  }
+
+  onSaveEvent(eventForm: NgForm): void {
+    //NEW
+    this.dataApi.addEvent(eventForm.value);
+    //UPDATE
   }
 
 }

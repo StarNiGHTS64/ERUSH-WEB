@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataApiService } from '../../services/data-api.service';
+import { GamingInterface } from '../../models/gaming';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-modal-gaming',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalGamingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataApi: DataApiService) { }
 
   ngOnInit() {
+  }
+
+  onSaveGaming(gamingForm: NgForm): void {
+    //NEW
+    this.dataApi.addGaming(gamingForm.value);
+    //UPDATE
   }
 
 }

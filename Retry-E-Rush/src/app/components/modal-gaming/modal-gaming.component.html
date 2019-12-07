@@ -2,27 +2,61 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <h5 class="modal-title" id="exampleModalLabel">New Gaming</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #formGaming="ngForm" (ngSubmit)="onSaveGaming(formGaming)">
+          <input type="text" name="gamingId">
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <label for="name" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]
+            ="this.dataApi.selectedGaming.name">
           </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="type">Type:</label>
+              <select name="type" class="form-control" [(ngModel)]
+              ="this.dataApi.selectedGaming.type">
+                <option value="Gaming Center">Gaming Center</option>
+                <option value="Comunidad">Comunidad</option>
+                <option value="Equipo E-Sports">Equipo E-Sports</option>
+                <option value="TCG">TCG</option>
+                <option value="Board Games">Board Games/option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="city">City:</label>
+              <select name="city" class="form-control" [(ngModel)]
+              ="this.dataApi.selectedGaming.city">
+                <option value="Queretaro">Queretaro</option>
+              </select>
+            </div>
+          </div>
+
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <label for="address" class="col-form-label">Address:</label>
+            <input type="text" class="form-control" name="address" [(ngModel)]
+            ="this.dataApi.selectedGaming.address">
           </div>
+
+          <div class="form-group">
+            <label for="description" class="col-form-label">Description:</label>
+            <textarea class="form-control" name="description" [(ngModel)]
+            ="this.dataApi.selectedGaming.description"></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Registrar Gaming</button>
+          </div>
+
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
+      
     </div>
   </div>
 </div>
