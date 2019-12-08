@@ -31,8 +31,9 @@ export class ListEventsComponent implements OnInit {
     }
   }
 
-  onPreUpdateBook(){
-    
+  onPreUpdateEvent(event: EventInterface){
+    console.log('EVENT', event);
+    this.dataApi.selectedEvent = Object.assign({}, event);
   }
 
 }
