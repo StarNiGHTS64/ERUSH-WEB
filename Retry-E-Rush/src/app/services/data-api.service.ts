@@ -71,7 +71,7 @@ export class DataApiService {
 
   };
   getAllEvents(){
-    return this.events = this.eventsCollection.snapshotChanges()
+    return this.events = this.afs.collection<EventInterface>('event', ref => ref.orderBy('rating', 'desc').limit(5)).snapshotChanges()
     .pipe(map(changes => {
       return changes.map( action => {
         const data = action.payload.doc.data() as EventInterface;
