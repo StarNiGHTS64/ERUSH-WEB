@@ -4,6 +4,7 @@
     <input
     type="search" class="form-control" placeholder="Nombre, tipo, ciudad o dirección"
     aria-controls="datatable" id="filterInput" onkeyup="filter(1, 4)">
+    ADMIN: {{isAdmin}}
     <table id="tableToFilter" class="table table-striped">
       <thead class="thead-dark">
         <tr>
@@ -23,15 +24,26 @@
           <td>{{gaming.type}}</td>
           <td>{{gaming.city}}</td>
           <td>{{gaming.address}}</td>
-          <td>
+          <td *ngIf="gaming.userUid == userUid || isAdmin == true; else noOwner">
             <button class="btn btn-primary" data-toggle="modal" data-target="#modalGaming" (click)="onPreUpdateGaming(gaming)">Update</button>
           </td>
-          <td>
+          <ng-template #noOwner>
+            <td>
+              <button class="btn btn-primary" disabled="true">Update</button>
+            </td>
+          </ng-template>
+
+          <td *ngIf="isAdmin == true; else noAdmin">
               <button class="btn btn-danger" (click)="onDeleteGaming(gaming.id)" >Delete</button>
           </td>
+          <ng-template #noAdmin>
+            <td>
+              <button class="btn btn-danger" disabled="true">Delete</button>
+            </td>
+          </ng-template>
         </tr>
       </tbody>
     </table>
   </div>
 </section>
-<app-modal-gaming></app-modal-gaming>
+<app-modal-gaming [userUid]= "userUid"></app-modal-gaming>

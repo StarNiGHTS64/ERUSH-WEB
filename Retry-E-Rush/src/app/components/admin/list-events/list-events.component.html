@@ -4,6 +4,7 @@
       <input
       type="search" class="form-control" placeholder="Nombre, tipo, ciudad o dirección"
       aria-controls="datatable" id="filterInput" onkeyup="filter(1, 4)">
+      ADMIN: {{isAdmin}}
       <table id="tableToFilter" class="table table-striped">
         <thead class="thead-dark">
           <tr>
@@ -23,16 +24,28 @@
             <td>{{event.date}}</td>
             <td>{{event.city}}</td>
             <td>{{event.address}}</td>
-            <td>
+            <td *ngIf="event.userUid == userUid || isAdmin == true; else noOwner">
               <button class="btn btn-primary" data-toggle="modal" data-target="#modalEvent"
               (click)="onPreUpdateEvent(event)">Update</button>
             </td>
-            <td>
+            <ng-template #noOwner>
+              <td>
+                <button class="btn btn-primary" disabled="true">Update</button>
+              </td>
+            </ng-template>
+
+
+            <td *ngIf="isAdmin == true; else noAdmin">
                 <button class="btn btn-danger" (click)="onDeleteEvent(event.id)">Delete</button>
             </td>
+            <ng-template #noAdmin>
+                <td>
+                  <button class="btn btn-danger" disabled="true">Delete</button>
+                </td>
+            </ng-template>
           </tr>
         </tbody>
       </table>
     </div>
   </section>
-  <app-modal-event></app-modal-event>
+  <app-modal-event [userUid]= "userUid"></app-modal-event>
