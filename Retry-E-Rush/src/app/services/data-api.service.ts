@@ -27,7 +27,7 @@ export class DataApiService {
     id:null
   };
   getAllGamings(){
-    return this.gamings = this.gamingsCollection.snapshotChanges()
+    return this.gamings = this.afs.collection<GamingInterface>('gaming', ref => ref.orderBy('rating', 'desc').limit(5)).snapshotChanges()
     .pipe(map(changes => {
       return changes.map( action => {
         const data = action.payload.doc.data() as GamingInterface;

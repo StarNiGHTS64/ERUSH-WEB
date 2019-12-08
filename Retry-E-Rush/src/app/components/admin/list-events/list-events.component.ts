@@ -20,7 +20,7 @@ export class ListEventsComponent implements OnInit {
   getListEvents(){
     this.dataApi.getAllEvents().subscribe(events => {
       this.events = events;
-    })
+    });
   }
 
   onDeleteEvent(idEvent: string): void{
