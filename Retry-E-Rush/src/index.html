@@ -11,4 +11,33 @@
 <body>
   <app-root></app-root>
 </body>
+
+<script>
+    function filter(startColumn, endColumn) {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("filterInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("tableToFilter");
+      tr = table.getElementsByTagName("tr");
+      for (i = 1; i < tr.length; i++) {
+        found = false;
+        for(j = startColumn; j < endColumn; j++){
+          td = tr[i].getElementsByTagName("td")[j];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1){
+              found = true;
+              break;
+            }
+          }
+        }
+        if(found){
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
 </html>

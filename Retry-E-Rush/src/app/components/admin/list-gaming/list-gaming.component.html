@@ -1,7 +1,10 @@
 <section class="row mt-5">
   <div class="col">
     <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalGaming">New Gaming</button>
-    <table class="table table-striped">
+    <input
+    type="search" class="form-control" placeholder="Nombre, tipo, ciudad o dirección"
+    aria-controls="datatable" id="filterInput" onkeyup="filter(1, 4)">
+    <table id="tableToFilter" class="table table-striped">
       <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
