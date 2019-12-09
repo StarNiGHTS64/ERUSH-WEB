@@ -27,6 +27,17 @@ export class DataApiService {
     id:null
   };
   getAllGamings(){
+    return this.gamings = this.gamingsCollection.snapshotChanges()
+    .pipe(map(changes => {
+      return changes.map( action => {
+        const data = action.payload.doc.data() as GamingInterface;
+        data.id = action.payload.doc.id;
+        return data;
+      });
+    }));
+  }
+
+  getTopGamings(){
     return this.gamings = this.afs.collection<GamingInterface>('gaming', ref => ref.orderBy('rating', 'desc').limit(5)).snapshotChanges()
     .pipe(map(changes => {
       return changes.map( action => {
@@ -36,6 +47,7 @@ export class DataApiService {
       });
     }));
   }
+
   getOneGaming(idGaming: string){
     this.gamingDoc = this.afs.doc<GamingInterface>(`gaming/${idGaming}`);
     return this.gaming = this.gamingDoc.snapshotChanges().pipe(map(action =>{
@@ -71,6 +83,17 @@ export class DataApiService {
 
   };
   getAllEvents(){
+    return this.events = this.eventsCollection.snapshotChanges()
+    .pipe(map(changes => {
+      return changes.map( action => {
+        const data = action.payload.doc.data() as EventInterface;
+        data.id = action.payload.doc.id;
+        return data;
+      });
+    }));
+  }
+
+  getTopEvents(){
     return this.events = this.afs.collection<EventInterface>('event', ref => ref.orderBy('rating', 'desc').limit(5)).snapshotChanges()
     .pipe(map(changes => {
       return changes.map( action => {
@@ -80,6 +103,7 @@ export class DataApiService {
       });
     }));
   }
+
   getOneEvent(idEvent: string){
     this.eventDoc = this.afs.doc<EventInterface>(`event/${idEvent}`);
     return this.event = this.eventDoc.snapshotChanges().pipe(map(action =>{

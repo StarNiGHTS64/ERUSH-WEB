@@ -13,7 +13,7 @@ export class TopGamingComponent implements OnInit {
   private gaming = '';
 
   ngOnInit() {
-    this.dataApi.getAllGamings().subscribe(gamings => {
+    this.dataApi.getTopGamings().subscribe(gamings => {
       console.log('GAMINGS: ', gamings);
       this.gamings = gamings;
     })

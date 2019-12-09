@@ -13,7 +13,7 @@ export class TopEventComponent implements OnInit {
   private event = '';
 
   ngOnInit() {
-    this.dataApi.getAllEvents().subscribe(events => {
+    this.dataApi.getTopEvents().subscribe(events => {
       console.log('EVENTS: ', events);
       this.events = events;
     })
